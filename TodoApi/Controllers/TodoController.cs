@@ -47,8 +47,16 @@ namespace TodoApi.Controllers
             return todoItem;
         }
 
-        // POST: api/Todo
+        /// <summary>
+        /// Create a TodoItem.
+        /// </summary>
+        /// <param name="item"></param>
+        /// <returns></returns>
+        /// <response code="201">Returns the newly created item</response>
+        /// <response code="400">If the item is null</response>
         [HttpPost]
+        [ProducesResponseType(201)]
+        [ProducesResponseType(400)]
         public async Task<ActionResult<TodoItem>> PostTodoItem(TodoItem item)
         {
             _context.TodoItems.Add(item);
